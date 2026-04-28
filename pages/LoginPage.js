@@ -1,3 +1,4 @@
+const { expect } = require('@playwright/test');
 const { BasePage } = require('./BasePage');
 
 class LoginPage extends BasePage {
@@ -28,16 +29,25 @@ class LoginPage extends BasePage {
     };
   }
 
-  async login(username, password) {
+  async submitLogin(username, password) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
+  }
+
+  async login(username, password) {
+    await this.submitLogin(username, password);
     await this.expectUrl(/inventory\.html/);
   }
 
   async loginWithVisibleCredentials() {
     const credentials = await this.getVisibleCredentials();
     await this.login(credentials.username, credentials.password);
+  }
+
+  async expectErrorMessage(message) {
+    await this.page.locator('[data-test="error"]').waitFor();
+    await expect(this.page.locator('[data-test="error"]')).toHaveText(message);
   }
 }
 

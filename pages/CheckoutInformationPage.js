@@ -1,4 +1,5 @@
 const { BasePage } = require('./BasePage');
+const { expect } = require('@playwright/test');
 
 class CheckoutInformationPage extends BasePage {
   constructor(page) {
@@ -22,6 +23,12 @@ class CheckoutInformationPage extends BasePage {
   async continue() {
     await this.continueButton.click();
     await this.expectUrl(/checkout-step-two\.html/);
+  }
+
+  async expectErrorMessage(message) {
+    const error = this.page.locator('[data-test="error"]');
+    await error.waitFor();
+    await expect(error).toHaveText(message);
   }
 }
 
