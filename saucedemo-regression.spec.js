@@ -6,8 +6,8 @@ const { CheckoutInformationPage } = require('./pages/CheckoutInformationPage');
 const { CheckoutOverviewPage } = require('./pages/CheckoutOverviewPage');
 const { CheckoutCompletePage } = require('./pages/CheckoutCompletePage');
 
-test.describe('SauceDemo checkout', () => {
-  test('@regression @positive add the first SauceDemo product to cart and complete checkout', async ({ page }) => {
+test.describe('SauceDemo regression', () => {
+  test('@regression full checkout flow completes successfully', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
     const cartPage = new CartPage(page);
