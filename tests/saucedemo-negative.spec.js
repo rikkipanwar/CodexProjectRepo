@@ -1,8 +1,8 @@
 const { test } = require('@playwright/test');
-const { LoginPage } = require('./pages/LoginPage');
-const { InventoryPage } = require('./pages/InventoryPage');
-const { CartPage } = require('./pages/CartPage');
-const { CheckoutInformationPage } = require('./pages/CheckoutInformationPage');
+const { LoginPage } = require('../pages/LoginPage');
+const { InventoryPage } = require('../pages/InventoryPage');
+const { CartPage } = require('../pages/CartPage');
+const { CheckoutInformationPage } = require('../pages/CheckoutInformationPage');
 
 test.describe('SauceDemo negative', () => {
   test('@negative invalid credentials show login error', async ({ page }) => {

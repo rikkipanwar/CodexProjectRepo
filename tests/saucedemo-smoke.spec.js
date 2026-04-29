@@ -1,7 +1,7 @@
 const { test } = require('@playwright/test');
-const { LoginPage } = require('./pages/LoginPage');
-const { InventoryPage } = require('./pages/InventoryPage');
-const { CartPage } = require('./pages/CartPage');
+const { LoginPage } = require('../pages/LoginPage');
+const { InventoryPage } = require('../pages/InventoryPage');
+const { CartPage } = require('../pages/CartPage');
 
 test.describe('SauceDemo smoke', () => {
   test('@smoke valid login and add first product to cart', async ({ page }) => {
